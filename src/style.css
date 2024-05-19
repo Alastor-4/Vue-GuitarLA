@@ -8,7 +8,7 @@
   text-transform: uppercase;
 }
 
-.carrito {
+.cart {
   background-color: transparent;
   border: none;
   max-width: 2rem;
@@ -16,12 +16,12 @@
   z-index: 100;
 }
 
-.carrito #carrito {
+.cart #cart {
   display: none;
   position: absolute;
 }
 
-.carrito:hover #carrito {
+.cart:hover #cart {
   display: block;
   background-color: white;
   padding: 10px;
@@ -35,17 +35,17 @@
   margin-right: unset;
 }
 
-#carrito img {
+#cart img {
   width: 30px;
 }
 
-#carrito .btn-danger {
+#cart .btn-danger {
   font-size: 10px;
   border-radius: 50%;
   padding: 5px 9px;
 }
 
-#carrito .btn-dark {
+#cart .btn-dark {
   padding: 0 2px;
   margin: 0 3px;
 }
@@ -54,12 +54,6 @@
   margin: 0;
 }
 
-/*!
- * Bootstrap  v5.2.3 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -301,14 +295,6 @@ button:not(:disabled),
   height: auto;
 }
 
-/* rtl:raw:
-[type="tel"],
-[type="url"],
-[type="email"],
-[type="number"] {
-  direction: ltr;
-}
-*/
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -570,39 +556,6 @@ button:not(:disabled),
   }
 }
 
-/* rtl:begin:ignore */
-
-/* rtl:end:ignore */
-
-/* rtl:begin:ignore */
-
-/* rtl:end:ignore */
-
-/* rtl:begin:ignore */
-
-/* rtl:end:ignore */
-
-/* rtl:begin:ignore */
-
-/* rtl:end:ignore */
-
-/* rtl:options: {
-  "autoRename": true,
-  "stringMap":[ {
-    "name"    : "prev-next",
-    "search"  : "prev",
-    "replace" : "next"
-  } ]
-} */
-
-@keyframes spinner-border {
-  to {
-    transform: rotate(360deg)
-      /* rtl:ignore */
-    ;
-  }
-}
-
 @keyframes spinner-grow {
   0% {
     transform: scale(0);
@@ -730,9 +683,6 @@ button:not(:disabled),
   text-transform: uppercase !important;
 }
 
-/* rtl:begin:remove */
-
-/* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
@@ -791,7 +741,7 @@ button:not(:disabled),
   }
 }
 
-@keyframes animarImagen {
+@keyframes animateImage {
   0% {
     opacity: 0;
     transform: translateX(-10rem);
@@ -809,19 +759,17 @@ button:not(:disabled),
 
 .header {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/header.jpg");
-  /** TODO: Eliminar la sig linea **/
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/header.jpg");
   background-position: 50%;
   background-size: cover;
   position: relative;
 }
 
-.header .header-guitarra {
+.header .header-guitar {
   display: none;
 }
 
 @media (min-width: 992px) {
-  .header .header-guitarra {
+  .header .header-guitar {
     display: block;
     position: absolute;
     right: 0;
@@ -829,7 +777,7 @@ button:not(:disabled),
     animation-duration: 1s;
     animation-delay: 0s;
     animation-timing-function: ease-in-out;
-    animation-name: animarImagen;
+    animation-name: animateImage;
     z-index: 10;
   }
 }

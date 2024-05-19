@@ -16,7 +16,7 @@ const { guitar } = defineProps({
             <h3 class="text-black fs-4 fw-bold text-uppercase">{{ guitar.name }}</h3>
             <p>{{ guitar.description }}</p>
             <p class="fw-black text-primary fs-3">${{ guitar.price }}</p>
-            <button type="button" class="btn btn-dark w-100">Add to the cart</button>
+            <button type="button" class="btn btn-dark w-100" @click="$emit('addToCart')">Add to the cart</button>
         </div>
     </div>
 </template>

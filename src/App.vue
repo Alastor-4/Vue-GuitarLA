@@ -2,101 +2,39 @@
 import { onMounted, ref } from 'vue';
 import { db } from './data/guitars.js';
 import Guitar from './components/Guitar.vue';
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 const guitars = ref([]);
+const cart = ref([]);
 
 onMounted(() => {
   guitars.value = db;
 })
 
+const addToCart = (guitar) => {
+  const alreadyExist = cart.value.findIndex(product => product.id === guitar.id);
+  if (alreadyExist >= 0) {
+    cart.value[alreadyExist].quantity++;
+  } else {
+    guitar.quantity = 1;
+    cart.value.push(guitar);
+  }
+}
+
 </script>
 
 <template>
-  <header class="py-5 header">
-    <div class="container-xl">
-      <div class="row justify-content-center justify-content-md-between">
-        <div class="col-8 col-md-3">
-          <a href="index.html">
-            <img class="img-fluid" src="/img/logo.svg" alt="imagen logo">
-          </a>
-        </div>
-        <nav class="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
-          <div class="carrito">
-            <img class="img-fluid" src="/img/cart.png" alt="imagen carrito" />
-
-            <div id="carrito" class="bg-white p-3">
-              <p class="text-center">The shopping cart is empty</p>
-              <table class="w-100 table">
-                <thead>
-                  <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img class="img-fluid" src="/img/guitar_02.jpg" alt="imagen guitarra">
-                    </td>
-                    <td>SRV</td>
-                    <td class="fw-bold">
-                      $299
-                    </td>
-                    <td class="flex align-items-start gap-4">
-                      <button type="button" class="btn btn-dark">
-                        -
-                      </button>
-                      1
-                      <button type="button" class="btn btn-dark">
-                        +
-                      </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-danger" type="button">
-                        X
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <p class="text-end">Total pagar: <span class="fw-bold">$899</span></p>
-              <button class="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
-            </div>
-          </div>
-        </nav>
-      </div><!--.row-->
-
-      <div class="row mt-5">
-        <div class="col-md-6 text-center text-md-start pt-5">
-          <h1 class="display-2 fw-bold">Modelo VAI</h1>
-          <p class="mt-5 fs-5 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, possimus
-            quibusdam dolor nemo velit quo, fuga omnis, iure molestias optio tempore sint at ipsa dolorum odio
-            exercitationem eos inventore odit.</p>
-          <p class="text-primary fs-1 fw-black">$399</p>
-          <button type="button" class="btn fs-4 bg-primary text-white py-2 px-5">Agregar al Carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <img class="header-guitarra" src="/img/header_guitar.png" alt="imagen header">
-  </header>
+  <Header :cart="cart" />
 
   <main class="container-xl mt-5">
     <h2 class="text-center">Our Collection</h2>
 
     <div class="row mt-5">
-      <Guitar v-for="guitar in guitars" :guitar="guitar" />
+      <Guitar v-for="guitar in guitars" :guitar="guitar" @click="addToCart(guitar)" />
     </div>
   </main>
 
+  <Footer />
 
-  <footer class="bg-dark mt-5 py-5">
-    <div class="container-xl">
-      <p class="text-white text-center fs-4 mt-4 m-md-0">GuitarLA - Todos los derechos Reservados</p>
-    </div>
-  </footer>
 </template>
