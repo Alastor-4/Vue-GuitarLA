@@ -34,7 +34,7 @@ defineEmits([
       <div class="row justify-content-center justify-content-md-between">
         <div class="col-8 col-md-3">
           <a href="index.html">
-            <img class="img-fluid" src="/img/logo.svg" alt="imagen logo" />
+            <img class="img-fluid" src="/img/logo.svg" alt="logo" />
           </a>
         </div>
         <nav
@@ -45,16 +45,16 @@ defineEmits([
 
             <div id="cart" class="bg-white p-3">
               <p v-if="cart.length === 0" class="text-center m-0">
-                The shopping cart is empty
+                El carrito de compra está vacío
               </p>
               <template v-else>
                 <table class="w-100 table">
                   <thead>
                     <tr>
-                      <th>Image</th>
-                      <th>Name</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
+                      <th>Imagen</th>
+                      <th>Nombre</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -100,13 +100,13 @@ defineEmits([
                 </table>
 
                 <p class="text-end">
-                  Total price: <span class="fw-bold">${{ totalPrice }}</span>
+                  Precio total: <span class="fw-bold">${{ totalPrice }}</span>
                 </p>
                 <button
                   class="btn btn-dark w-100 mt-3 p-2"
                   @click="$emit('deleteAllProducts')"
                 >
-                  Clear cart
+                  Vaciar carrito
                 </button>
               </template>
             </div>
@@ -116,7 +116,7 @@ defineEmits([
 
       <div class="row mt-5">
         <div class="col-md-6 text-center text-md-start pt-5">
-          <h1 class="display-2 fw-bold">Model {{ guitar.name }}</h1>
+          <h1 class="display-2 fw-bold">Modelo {{ guitar.name }}</h1>
           <p class="mt-5 fs-5 text-white">
             {{ guitar.description }}
           </p>
@@ -126,7 +126,7 @@ defineEmits([
             type="button"
             class="btn fs-4 bg-primary text-white py-2 px-5"
           >
-            Add to the cart
+            Adicionar al carrito
           </button>
         </div>
       </div>
